@@ -8,7 +8,7 @@ void sort(int* array);
 void print(int* array);
 
 int main() {
-    int err = 0, size = 0, array[SIZE];
+    int err = 0, array[SIZE];
     err = generate(array);
     if (err == 1) {
         printf("n/a");
