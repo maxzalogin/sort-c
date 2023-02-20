@@ -1,28 +1,33 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define SIZE 5
-
-int generate(int* array);
-void sort(int* array);
-void print(int* array);
+int generate(int* array, int size);
+void sort(int* array, int size);
+void print(int* array, int size);
 
 int main() {
-    int err = 0, array[SIZE];
-    err = generate(array);
+    int err = 0, size = 0;
+
+    if((scanf("%d", &size) != 1) || size <= 0) {
+        printf("n/a");
+    } else {
+    int array[size];
+    err = generate(array, size);
     if (err == 1) {
         printf("n/a");
     } else {
-        sort(array);
-        print(array);
+        sort(array, size);
+        print(array, size);
     }
+}
+
     return 0;
 }
 
-int generate(int* array) {
+int generate(int* array, int size) {
     int values = 0;
     int flag = 0;
-    for (int i = 0; i < SIZE; i++) {
+    for (int i = 0; i < size; i++) {
         if ((scanf("%d", &values) != 1)) {
             flag++;
             return flag;
@@ -32,11 +37,9 @@ int generate(int* array) {
     return flag;
 }
 
-// Buble sort O(n^2)
-
-void sort(int* array) {
-    for (int i = 0; i < SIZE; i++) {
-        for (int j = 0; j < SIZE - i - 0; j++) {
+void sort(int* array, int size) {
+    for (int i = 0; i < size; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
             if (array[j] > array[j + 1]) {
                 int tmp = array[j];
                 array[j] = array[j + 1];
@@ -46,9 +49,9 @@ void sort(int* array) {
     }
 }
 
-void print(int* array) {
-    for (int i = 0; i < SIZE; i++) {
+void print(int* array, int size) {
+    for (int i = 0; i < size; i++) {
         printf("%d", array[i]);
-        if (i != SIZE - 1) printf(" ");
+        if (i != size - 1) printf(" ");
     }
 }
