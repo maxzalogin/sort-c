@@ -8,19 +8,18 @@ void print(int* array, int size);
 int main() {
     int err = 0, size = 0;
 
-    if((scanf("%d", &size) != 1) || size <= 0) {
+    if ((scanf("%d", &size) != 1) || size <= 0) {
         printf("n/a");
     } else {
-    int array[size];
-    err = generate(array, size);
-    if (err == 1) {
-        printf("n/a");
-    } else {
-        sort(array, size);
-        print(array, size);
+        int array[size];
+        err = generate(array, size);
+        if (err == 1) {
+            printf("n/a");
+        } else {
+            sort(array, size);
+            print(array, size);
+        }
     }
-}
-
     return 0;
 }
 
