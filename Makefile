@@ -1,6 +1,19 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror
-DIR=build/
+BUILD=build/
+SRC=src/
 
-buble-sort: 
-	$(CC) $(CFLAGS) src/buble-sort.c -o $(DIR)main
+main.o: 
+	gcc -c src/main.c
+
+sort.o:
+	gcc -c src/sort.c
+
+main: $(SRC)main.o $(SRC)sort.o
+	gcc $(SRC)main.o $(SRC)sort.o -o $(BUILD)main
+
+clean:
+	rm -rf $(SRC)*.o main
+
+run:
+	build/main
