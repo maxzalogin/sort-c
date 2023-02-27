@@ -1,1 +1,11 @@
+#Linters
 .clang-format
+
+#Objects files
+*.o
+
+#Visual Studio
+.vscode
+
+#Scripts
+map.sh
