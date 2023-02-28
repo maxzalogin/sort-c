@@ -14,6 +14,7 @@ main: $(SRC)main.o $(SRC)sort.o
 
 clean:
 	rm -rf $(SRC)*.o main
+	rm $(BUILD)main
 
 run:
 	build/main
