@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h> 
 
 #include "sort.h"
 
@@ -18,8 +19,17 @@ int main() {
   
   while (value != -1);
 
-  buble(p, count);
+  double time_spent = 0.0;
+  clock_t begin = clock();
+
+  // buble(p, count);
+  quick(p, 0, count - 1);
+
+  clock_t end = clock();
+  time_spent += (double)(end - begin) / CLOCKS_PER_SEC;
   print(p, count);
+  printf("\n\nTime: %f seconds", time_spent);
+
   free(p);
 
   return 0;
