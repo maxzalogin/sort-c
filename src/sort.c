@@ -9,3 +9,27 @@ void buble(int* array, int len) {
     }
   }
 }
+
+void quick(int* array, int first, int last) {
+if (first < last) {
+int left = first;
+int right = last;
+int center = array[(first + last) / 2];
+do {
+while (array[left] < center) 
+left++;
+while (array[right] > center) 
+right--;
+
+if (left <= right) {
+int tmp = array[left];
+array[left] = array[right];
+array[right] = tmp;
+left++;
+right--;
+}
+} while (left < right);
+  quick(array, first, right);
+  quick(array, left, last);
+}
+}
