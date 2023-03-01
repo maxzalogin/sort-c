@@ -4,13 +4,13 @@ BUILD=build/
 SRC=src/
 
 main.o: 
-	gcc -c src/main.c
+	$(CC) $(CFLAGS) -c src/main.c
 
 sort.o:
-	gcc -c src/sort.c
+	$(CC) $(CFLAGS) -c src/sort.c
 
 main: $(SRC)main.o $(SRC)sort.o
-	gcc $(SRC)main.o $(SRC)sort.o -o $(BUILD)main
+	$(CC) $(CFLAGS) $(SRC)main.o $(SRC)sort.o -o$(BUILD)main
 
 clean:
 	rm -rf $(SRC)*.o main
